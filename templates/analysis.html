@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center">Attendance Analysis</h2>
+<p class="text-center">Analyzing attendance data for <strong>{{ num_days }}</strong> day(s).</p>
+
+<div class="container">
+    {% for plot in plots %}
+    <div class="mb-5 text-center">
+        <h4>Attendance Summary for {{ plot.date_column }}</h4>
+        <img src="data:image/png;base64,{{ plot.plot_url }}" alt="Attendance Summary for {{ plot.date_column }}" class="img-fluid">
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+    <a href="/" class="btn btn-secondary">Go Back to Home</a>
+</div>
+{% endblock %}
